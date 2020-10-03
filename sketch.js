@@ -5,6 +5,8 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
+var b1,b2,b3;
+
 function preload()
 {
 	helicopterIMG=loadImage("helicopter.png")
@@ -40,6 +42,7 @@ function setup() {
 	//Create a Ground
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
  	World.add(world, ground);
+	
 
 
 	Engine.run(engine);
@@ -52,15 +55,20 @@ function draw() {
   background(0);
   packageSprite.x= packageBody.position.x 
   packageSprite.y= packageBody.position.y
+  b1 = createSprite(400, 660, 200, 20  );
+  b2 = createSprite(300, 620, 20, 100  );
+  b3 = createSprite(500, 620, 20, 100  );
+  b1.shapeColor = "red"
+  b2.shapeColor = "red"
   
-  
+  b3.shapeColor = "red"
   drawSprites();
  
 }
 
 function keyPressed() {
  if (keyCode === DOWN_ARROW) {
-	// Look at the hints in the document and understand how to make the package body fall only on down key	
+		
 	Matter.Body.setStatic( packageBody, false);
     
   }
